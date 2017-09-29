@@ -10,3 +10,5 @@ How security updates are managed
 -----
 
 We have a Jenkins server which attempts to rebuild the image without cache daily to pick up security updates. Users of this image are also encouraged to rebuild daily.
+
+See [this image on the Docker Hub](https://hub.docker.com/r/dcycle/drupal/).
