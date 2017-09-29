@@ -1,3 +1,4 @@
+#!/bin/bash
 # Rebuild script
 # This is meant to be run on a regular basis, daily or twice daily,
 # to rebuild the image with the latest security features.
