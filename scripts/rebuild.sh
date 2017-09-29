@@ -17,7 +17,9 @@ else
 fi
 
 DATE=`date '+%Y-%m-%d-%H-%M-%S-%Z'`
-docker build -t dcycle/drupal:8 .
+# Rebuild the entire thing because there may be security updates
+# since the last build.
+docker build --no-cache -t dcycle/drupal:8 .
 docker build -t dcycle/drupal:8.$DATE .
 docker login -u"$DOCKERHUBUSER" -p"$DOCKERHUBPASS"
 docker push dcycle/drupal:8
