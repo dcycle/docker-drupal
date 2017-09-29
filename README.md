@@ -9,6 +9,13 @@ This image was created for two reasons:
 How security updates are managed
 -----
 
-We have a Jenkins server which attempts to rebuild the image without cache daily to pick up security updates. Users of this image are also encouraged to rebuild daily.
+We have a Jenkins server which attempts to rebuild the image wednesdays around 4pm EDT after the security updates are released. Users of this image are also encouraged to rebuild daily.
+
+The jenkins schedule is:
+
+    TZ=America/Montreal
+    H 16 * * 3
+
+16 is the time, 3 is the day (Wednesday).
 
 See [this image on the Docker Hub](https://hub.docker.com/r/dcycle/drupal/).
