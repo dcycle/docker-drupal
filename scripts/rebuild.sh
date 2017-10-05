@@ -19,6 +19,9 @@ fi
 DATE=`date '+%Y-%m-%d-%H-%M-%S-%Z'`
 # Rebuild the entire thing because there may be security updates
 # since the last build.
+# Start by getting the latest version of the official drupal image
+docker pull drupal:8
+# Rebuild the entire thing
 docker build --no-cache -t dcycle/drupal:8 .
 docker build -t dcycle/drupal:8.$DATE .
 docker login -u"$DOCKERHUBUSER" -p"$DOCKERHUBPASS"
