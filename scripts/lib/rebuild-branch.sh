@@ -1,5 +1,7 @@
 BRANCH="$1"
 
+git fetch -a
+git checkout "$1"
 # Start by getting the latest version of the official drupal image
 docker pull drupal:"$BRANCH"
 # Rebuild the entire thing
