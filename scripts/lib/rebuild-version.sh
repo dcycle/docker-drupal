@@ -8,3 +8,5 @@ docker build -f="Dockerfile-$VERSION" -t dcycle/drupal:"$VERSION".$DATE .
 docker login -u"$DOCKERHUBUSER" -p"$DOCKERHUBPASS"
 docker push dcycle/drupal:"$VERSION"
 docker push dcycle/drupal:"$VERSION"."$DATE"
+docker rmi dcycle/drupal:"$VERSION"
+docker rmi dcycle/drupal:"$VERSION"."$DATE"
