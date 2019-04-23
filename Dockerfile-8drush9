@@ -8,6 +8,7 @@ RUN ln -s /root/.composer/vendor/drush/drush/drush /bin/drush
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y mysql-client
 RUN apt-get install -y vim
+RUN apt-get install -y git
 
 # Get latest version of Drupal, because the official image may
 # be insecure for awhile after security updates.
