@@ -2,7 +2,7 @@ FROM drupal:8
 
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
-RUN composer global require drush/drush:~8
+RUN composer global require drush/drush:~9
 RUN ln -s /root/.composer/vendor/drush/drush/drush /bin/drush
 
 RUN apt-get update && apt-get upgrade -y
@@ -13,7 +13,6 @@ RUN apt-get install -y vim
 # be insecure for awhile after security updates.
 RUN mkdir /var/www/latest-drupal
 RUN cd /var/www/latest-drupal && composer require drupal/core:~8
-RUN cd /var/www/latest-drupal/vendor && ls -lah
-RUN cp -r /var/www/latest-drupal/drupal-*/* /var/www/html
+RUN cp -r /var/www/latest-drupal/vendor/drupal /var/www/html
 
 EXPOSE 80
