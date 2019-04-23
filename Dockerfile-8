@@ -12,8 +12,7 @@ RUN apt-get install -y vim
 # Get latest version of Drupal, because the official image may
 # be insecure for awhile after security updates.
 RUN mkdir /var/www/latest-drupal
-RUN cd /var/www/latest-drupal && composer require drupal/core:~8
-RUN cd /var/www/latest-drupal/vendor && ls -lah
+RUN cd /var/www/latest-drupal && drush dl
 RUN cp -r /var/www/latest-drupal/drupal-*/* /var/www/html
 
 EXPOSE 80
