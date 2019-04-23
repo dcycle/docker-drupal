@@ -21,3 +21,4 @@ DATE=`date '+%Y-%m-%d-%H-%M-%S-%Z'`
 # since the last build.
 source ./scripts/lib/rebuild-version.sh 8
 source ./scripts/lib/rebuild-version.sh 7
+source ./scripts/lib/rebuild-version.sh 8drush9
