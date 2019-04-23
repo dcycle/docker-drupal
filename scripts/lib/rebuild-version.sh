@@ -1,7 +1,8 @@
 VERSION="$1"
+BASEIMAGEVERSION="$2"
 
 # Start by getting the latest version of the official drupal image
-docker pull drupal:"$VERSION"
+docker pull drupal:"$BASEIMAGEVERSION"
 # Rebuild the entire thing
 docker build -f="Dockerfile-$VERSION" --no-cache -t dcycle/drupal:"$VERSION" .
 docker build -f="Dockerfile-$VERSION" -t dcycle/drupal:"$VERSION".$DATE .
