@@ -2,8 +2,6 @@ FROM drupal:8
 
 RUN curl -sS https://getcomposer.org/installer | php
 RUN mv composer.phar /usr/local/bin/composer
-RUN composer global require drush/drush:~9
-RUN ln -s /root/.composer/vendor/drush/drush/drush /bin/drush
 
 RUN apt-get update && apt-get upgrade -y
 RUN apt-get install -y mysql-client
@@ -15,5 +13,7 @@ RUN apt-get install -y git
 RUN mkdir /var/www/latest-drupal
 RUN cd /var/www/latest-drupal && composer require drupal/core:~8
 RUN cp -r /var/www/latest-drupal/vendor/drupal /var/www/html
+RUN cd /var/www/html && composer require drush/drush:~9
+RUN ln -s /var/www/html/vendor/bin/drush /bin/drush
 
 EXPOSE 80
