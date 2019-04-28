@@ -1,20 +1,15 @@
 FROM drupal:8
 
-RUN curl -sS https://getcomposer.org/installer | php
-RUN mv composer.phar /usr/local/bin/composer
-
-RUN apt-get update && apt-get upgrade -y
-RUN apt-get install -y mysql-client
-RUN apt-get install -y vim
-RUN apt-get install -y git
-RUN apt-get install -y zip
-
-# Get latest version of Drupal, because the official image may
-# be insecure for awhile after security updates.
-RUN mkdir /var/www/latest-drupal
-RUN cd /var/www/latest-drupal && composer require drupal/core:~8
-RUN cp -r /var/www/latest-drupal/vendor/drupal /var/www/html
-RUN cd /var/www/html && composer require drush/drush:~9
-RUN ln -s /var/www/html/vendor/bin/drush /bin/drush
+RUN curl -sS https://getcomposer.org/installer | php && \
+  mv composer.phar /usr/local/bin/composer && \
+  apt-get update && \
+  apt-get install -y --no-install-recommends mysql-client git zip && \
+  rm -rf /var/lib/apt/lists/* && \
+  mkdir /var/www/latest-drupal && \
+  cd /var/www/latest-drupal && \
+  composer require drupal/core:~8 && \
+  cp -r /var/www/latest-drupal/vendor/drupal /var/www/html && \
+  cd /var/www/html && composer require drush/drush:~9 && \
+  ln -s /var/www/html/vendor/bin/drush /bin/drush
 
 EXPOSE 80
