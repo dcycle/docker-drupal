@@ -8,7 +8,7 @@ RUN curl -sS https://getcomposer.org/installer | php && \
   apt-get install -y --no-install-recommends mysql-client git zip && \
   rm -rf /var/lib/apt/lists/* && \
   mkdir /var/www/latest-drupal && \
-  cd /var/www/latest-drupal && drush dl \
+  cd /var/www/latest-drupal && drush dl && \
   cp -r /var/www/latest-drupal/drupal-*/* /var/www/html
 
 EXPOSE 80
