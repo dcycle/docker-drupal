@@ -1,4 +1,4 @@
-A Drupal+Drush Docker image
+A Drupal+Drush Docker image, updated Wednesdays
 -----
 
 This image was created for two reasons:
