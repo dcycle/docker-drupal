@@ -1,16 +1,8 @@
-FROM drupal:8
+FROM dcycle/drupal:8
 
-RUN curl -sS https://getcomposer.org/installer | php && \
-  mv composer.phar /usr/local/bin/composer && \
-  apt-get update && \
-  apt-get install -y --no-install-recommends mysql-client git zip && \
-  rm -rf /var/lib/apt/lists/* && \
-  mkdir /var/www/latest-drupal && \
-  cd /var/www/latest-drupal && \
-  composer require drupal/core:~8 && \
-  cp -r /var/www/latest-drupal/vendor/drupal/* /var/www/html && \
-  cat /var/www/html/core/lib/Drupal.php|grep VERS && \
+RUN cat /var/www/html/core/lib/Drupal.php|grep VERS && \
   cd /var/www/html && composer require drush/drush:~9 && \
+  rm /bin/drush && \
   ln -s /var/www/html/vendor/bin/drush /bin/drush
 
 EXPOSE 80
