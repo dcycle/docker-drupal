@@ -1,0 +1,8 @@
+FROM dcycle/drupal:8
+
+RUN cat /var/www/html/core/lib/Drupal.php|grep VERS && \
+  cd /var/www/html && composer require drush/drush:~10 && \
+  rm /bin/drush && \
+  ln -s /var/www/html/vendor/bin/drush /bin/drush
+
+EXPOSE 80
