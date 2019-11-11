@@ -4,7 +4,6 @@
 set -e
 
 docker pull drupal:8
-docker pull drupal:8drush9
 docker pull drupal:7
 
 docker build -f="Dockerfile-7" -t test-drupal-7 .
