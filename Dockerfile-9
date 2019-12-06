@@ -11,7 +11,6 @@ COPY docker-resources/9/composer.json /var/www/html/composer.json
 RUN rm composer.lock && \
   composer install && \
   cat /var/www/html/core/lib/Drupal.php|grep VERS && \
-  rm /bin/drush && \
   ln -s /var/www/html/vendor/bin/drush /bin/drush && \
   drush -v
 
