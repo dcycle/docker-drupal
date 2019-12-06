@@ -29,3 +29,5 @@ Docker tags
 * **8drush**: The latest Drupal 8 image with the latest version of drush higher than 9 (recommended).
 * **7.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 7 image frozen in time.
 * **7**: The latest Drupal 7 image.
+* **9.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 9 image frozen in time.
+* **9**: The latest Drupal 9 image.
