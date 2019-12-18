@@ -16,7 +16,7 @@
     ],
     "require": {
         "drush/drush": "~10",
-        "composer/installers": "~1.2",
+        "composer/installers": "^1.2",
         "drupal/core-composer-scaffold": "~9",
         "drupal/core-project-message": "~9",
         "drupal/core-recommended": "~9"
@@ -29,6 +29,9 @@
     },
     "minimum-stability": "dev",
     "prefer-stable": true,
+    "config": {
+        "sort-packages": true
+    },
     "extra": {
         "drupal-scaffold": {
             "locations": {
@@ -36,43 +39,25 @@
             }
         },
         "installer-paths": {
-            "./core": [
-                "type:drupal-core"
-            ],
-            "./libraries/{$name}": [
-                "type:drupal-library"
-            ],
-            "./modules/contrib/{$name}": [
-                "type:drupal-module"
-            ],
-            "./profiles/contrib/{$name}": [
-                "type:drupal-profile"
-            ],
-            "./themes/contrib/{$name}": [
-                "type:drupal-theme"
-            ],
-            "drush/Commands/contrib/{$name}": [
-                "type:drupal-drush"
-            ],
-            "./modules/custom/{$name}": [
-                "type:drupal-custom-module"
-            ],
-            "./themes/custom/{$name}": [
-                "type:drupal-custom-theme"
-            ]
+            "./core": ["type:drupal-core"],
+            "./libraries/{$name}": ["type:drupal-library"],
+            "./modules/contrib/{$name}": ["type:drupal-module"],
+            "./profiles/contrib/{$name}": ["type:drupal-profile"],
+            "./themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/Commands/contrib/{$name}": ["type:drupal-drush"],
+            "./modules/custom/{$name}": ["type:drupal-custom-module"],
+            "./themes/custom/{$name}": ["type:drupal-custom-theme"]
         },
         "drupal-core-project-message": {
-            "include-keys": [
-                "homepage",
-                "support"
-            ],
+            "include-keys": ["homepage", "support"],
             "post-create-project-cmd-message": [
                 "<bg=blue;fg=white>                                                         </>",
-                "<bg=blue;fg=white>  Congratulations, you\u2019ve installed the Drupal codebase  </>",
+                "<bg=blue;fg=white>  Congratulations, you’ve installed the Drupal codebase  </>",
                 "<bg=blue;fg=white>  from the drupal/recommended-project template!          </>",
                 "<bg=blue;fg=white>                                                         </>",
                 "",
                 "<bg=yellow;fg=black>Next steps</>:",
+
                 "  * Install the site: https://www.drupal.org/docs/8/install",
                 "  * Read the user guide: https://www.drupal.org/docs/user_guide/en/index.html",
                 "  * Get support: https://www.drupal.org/support",
