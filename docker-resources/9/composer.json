@@ -15,7 +15,7 @@
         }
     ],
     "require": {
-        "drush/drush": "~10",
+        "drush/drush": "dev-master",
         "composer/installers": "^1.2",
         "drupal/core-vendor-hardening": "~9",
         "drupal/core-composer-scaffold": "~9",
