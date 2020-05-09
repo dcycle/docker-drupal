@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/dcycle/docker-drupal.svg?style=svg)](https://circleci.com/gh/dcycle/docker-drupal)
+
 A Drupal+Drush Docker image, updated Wednesdays
 -----
 
