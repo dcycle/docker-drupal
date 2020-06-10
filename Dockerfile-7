@@ -5,7 +5,7 @@ RUN curl -sS https://getcomposer.org/installer | php && \
   composer global require drush/drush:~8 && \
   ln -s /root/.composer/vendor/drush/drush/drush /bin/drush && \
   apt-get update && \
-  apt-get install -y --no-install-recommends mysql-client git zip && \
+  apt-get install -y --no-install-recommends mariadb-client git zip && \
   rm -rf /var/lib/apt/lists/* && \
   mkdir /var/www/latest-drupal && \
   cd /var/www/latest-drupal && drush dl drupal-7 && \

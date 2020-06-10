@@ -3,7 +3,7 @@ FROM drupal:8
 RUN curl -sS https://getcomposer.org/installer | php && \
   mv composer.phar /usr/local/bin/composer && \
   apt-get update && \
-  apt-get install -y --no-install-recommends mysql-client git unzip && \
+  apt-get install -y --no-install-recommends mariadb-client git unzip && \
   rm -rf /var/lib/apt/lists/*
 
 COPY docker-resources/8drush9/composer.json /var/www/html/composer.json
