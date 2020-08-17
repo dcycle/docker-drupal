@@ -12,7 +12,7 @@ RUN rm composer.lock && \
   export COMPOSER_MEMORY_LIMIT=-1 && \
   composer install && \
   cat /var/www/html/core/lib/Drupal.php|grep VERS && \
-  ln -s /var/www/html/vendor/bin/drush /bin/drush && \
+  ln -s /opt/drupal/vendor/bin/drush /bin/drush && \
   drush -v
 
 EXPOSE 80
