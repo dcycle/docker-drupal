@@ -17,8 +17,8 @@ docker build -f="Dockerfile-8drush" -t test-drupal-8drush .
 echo "Testing Dockerfile-9"
 docker build -f="Dockerfile-9" -t test-drupal-9 .
 
-docker run --rm test-drupal-7 /bin/bash -c 'ls -lah | grep .htaccess'
-docker run --rm test-drupal-8 /bin/bash -c 'ls -lah | grep .htaccess'
-docker run --rm test-drupal-8drush9 /bin/bash -c 'ls -lah | grep .htaccess'
-docker run --rm test-drupal-8drush /bin/bash -c 'ls -lah | grep .htaccess'
-docker run --rm test-drupal-9 /bin/bash -c 'ls -lah | grep .htaccess'
+source ./scripts/lib/smoke-test.sh test-drupal-7
+source ./scripts/lib/smoke-test.sh test-drupal-8
+source ./scripts/lib/smoke-test.sh test-drupal-8drush9
+source ./scripts/lib/smoke-test.sh test-drupal-8drush
+source ./scripts/lib/smoke-test.sh test-drupal-9

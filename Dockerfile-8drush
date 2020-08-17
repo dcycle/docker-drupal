@@ -6,13 +6,13 @@ RUN curl -sS https://getcomposer.org/installer | php && \
   apt-get install -y --no-install-recommends mariadb-client git unzip && \
   rm -rf /var/lib/apt/lists/*
 
-COPY docker-resources/8drush/composer.json /var/www/html/composer.json
+COPY docker-resources/8drush/composer.json /opt/drupal/composer.json
 
 RUN rm composer.lock && \
   export COMPOSER_MEMORY_LIMIT=-1 && \
   composer install && \
   cat /var/www/html/core/lib/Drupal.php|grep VERS && \
-  ln -s /var/www/html/vendor/bin/drush /bin/drush && \
+  ln -s /opt/drupal/vendor/bin/drush /bin/drush && \
   drush -v
 
 EXPOSE 80
