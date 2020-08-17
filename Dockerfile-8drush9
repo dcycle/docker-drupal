@@ -6,7 +6,7 @@ RUN curl -sS https://getcomposer.org/installer | php && \
   apt-get install -y --no-install-recommends mariadb-client git unzip && \
   rm -rf /var/lib/apt/lists/*
 
-COPY docker-resources/8drush9/composer.json /var/www/html/composer.json
+COPY docker-resources/8drush9/composer.json /opt/drupal/composer.json
 
 RUN rm composer.lock && \
   export COMPOSER_MEMORY_LIMIT=-1 && \
