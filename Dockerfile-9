@@ -1,25 +1,21 @@
 FROM drupal:8
 
-# See "/var/www/html vs /opt/drupal" in ./README.md
-# This code exists in ./Dockerfile-8, ./Dockerfile-8drush, ./Dockerfile-9
-# Remove the symlink
-RUN rm /var/www/html
-RUN rm -rf /opt/drupal
-WORKDIR /var/www/html
-
-RUN curl -sS https://getcomposer.org/installer | php && \
-  mv composer.phar /usr/local/bin/composer && \
-  apt-get update && \
-  apt-get install -y --no-install-recommends mariadb-client git unzip && \
-  rm -rf /var/lib/apt/lists/*
-
 COPY docker-resources/9/composer.json /opt/drupal/composer.json
 
-RUN rm composer.lock && \
+# See "/var/www/html vs /opt/drupal" in ./README.md
+# This code exists in ./Dockerfile-8, ./Dockerfile-8drush, ./Dockerfile-9
+WORKDIR /var/www/html
+RUN rm /var/www/html && \
+  rm -rf /opt/drupal && \
+  mkdir /var/www/html && \
+  chown www-data:www-data /var/www/html && \
+  apt-get update && \
+  apt-get install -y --no-install-recommends mariadb-client git unzip && \
+  rm -rf /var/lib/apt/lists/* && \
   export COMPOSER_MEMORY_LIMIT=-1 && \
   composer install && \
   cat /var/www/html/core/lib/Drupal.php|grep VERS && \
-  ln -s /opt/drupal/vendor/bin/drush /bin/drush && \
+  ln -s /var/www/html/vendor/bin/drush /bin/drush && \
   drush -v
 
 EXPOSE 80

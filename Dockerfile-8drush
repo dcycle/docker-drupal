@@ -1,21 +1,18 @@
 FROM drupal:8
 
-# See "/var/www/html vs /opt/drupal" in ./README.md
-# This code exists in ./Dockerfile-8, ./Dockerfile-8drush, ./Dockerfile-9
-# Remove the symlink
-RUN rm /var/www/html
-RUN rm -rf /opt/drupal
-RUN mkdir /var/www/html
-RUN chown www-data:www-data /var/www/html
-WORKDIR /var/www/html
-
-RUN apt-get update && \
-  apt-get install -y --no-install-recommends mariadb-client git unzip && \
-  rm -rf /var/lib/apt/lists/*
-
 COPY docker-resources/8drush/composer.json /var/www/html/composer.json
 
-RUN export COMPOSER_MEMORY_LIMIT=-1 && \
+# See "/var/www/html vs /opt/drupal" in ./README.md
+# This code exists in ./Dockerfile-8, ./Dockerfile-8drush, ./Dockerfile-9
+WORKDIR /var/www/html
+RUN rm /var/www/html && \
+  rm -rf /opt/drupal && \
+  mkdir /var/www/html && \
+  chown www-data:www-data /var/www/html && \
+  apt-get update && \
+  apt-get install -y --no-install-recommends mariadb-client git unzip && \
+  rm -rf /var/lib/apt/lists/* && \
+  export COMPOSER_MEMORY_LIMIT=-1 && \
   composer install && \
   cat /var/www/html/core/lib/Drupal.php|grep VERS && \
   ln -s /var/www/html/vendor/bin/drush /bin/drush && \

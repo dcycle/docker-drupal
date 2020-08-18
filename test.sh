@@ -17,8 +17,8 @@ docker build -f="Dockerfile-8drush" -t test-drupal-8drush .
 echo "Testing Dockerfile-9"
 docker build -f="Dockerfile-9" -t test-drupal-9 .
 
-source ./scripts/lib/smoke-test.sh test-drupal-7 .
-source ./scripts/lib/smoke-test.sh test-drupal-8 .
-source ./scripts/lib/smoke-test.sh test-drupal-8drush9 web
-source ./scripts/lib/smoke-test.sh test-drupal-8drush web
-source ./scripts/lib/smoke-test.sh test-drupal-9 web
+source ./scripts/lib/smoke-test.sh test-drupal-7
+source ./scripts/lib/smoke-test.sh test-drupal-8
+source ./scripts/lib/smoke-test.sh test-drupal-8drush9
+source ./scripts/lib/smoke-test.sh test-drupal-8drush
+source ./scripts/lib/smoke-test.sh test-drupal-9
