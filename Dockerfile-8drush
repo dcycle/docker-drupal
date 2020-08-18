@@ -4,11 +4,11 @@ COPY docker-resources/8drush/composer.json /composer-file/composer.json
 
 # See "/var/www/html vs /opt/drupal" in ./README.md
 # This code exists in ./Dockerfile-8, ./Dockerfile-8drush, ./Dockerfile-9
-WORKDIR /var/www/html
 RUN rm /var/www/html && \
   rm -rf /opt/drupal && \
-  mkdir /var/www/html && \
-  mv /composer-file/composer.json /var/www/html/composer.json && \
+  mkdir /var/www/html
+WORKDIR /var/www/html
+RUN mv /composer-file/composer.json /var/www/html/composer.json && \
   chown www-data:www-data /var/www/html && \
   apt-get update && \
   apt-get install -y --no-install-recommends mariadb-client git unzip && \
