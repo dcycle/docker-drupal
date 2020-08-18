@@ -1,6 +1,6 @@
 FROM drupal:8
 
-COPY docker-resources/8drush9/composer.json /opt/drupal/composer.json
+COPY docker-resources/8drush9/composer.json /var/www/html/composer.json
 
 # See "/var/www/html vs /opt/drupal" in ./README.md
 # This code exists in ./Dockerfile-8, ./Dockerfile-8drush, ./Dockerfile-9
