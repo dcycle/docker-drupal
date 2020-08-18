@@ -1,8 +1,6 @@
 FROM drupal:8
 
-RUN curl -sS https://getcomposer.org/installer | php && \
-  mv composer.phar /usr/local/bin/composer && \
-  composer global require drush/drush:~8 && \
+RUN composer global require drush/drush:~8 && \
   ln -s /root/.composer/vendor/drush/drush/drush /bin/drush && \
   apt-get update && \
   apt-get install -y --no-install-recommends mariadb-client git zip && \
