@@ -1,16 +1,22 @@
 FROM drupal:8
 
-RUN curl -sS https://getcomposer.org/installer | php && \
-  mv composer.phar /usr/local/bin/composer && \
-  composer global require drush/drush:~8 && \
-  ln -s /root/.composer/vendor/drush/drush/drush /bin/drush && \
-  apt-get update && \
-  apt-get install -y --no-install-recommends mariadb-client git zip && \
-  rm -rf /var/lib/apt/lists/* && \
-  mkdir /var/www/latest-drupal && \
-  cd /var/www/latest-drupal && drush dl && \
-  cp -r /var/www/latest-drupal/drupal-*/* /var/www/html
+COPY docker-resources/8/composer.json /composer-file/composer.json
 
+# See "/var/www/html vs /opt/drupal" in ./README.md
+# This code exists in ./Dockerfile-8, ./Dockerfile-8drush, ./Dockerfile-9
+RUN rm /var/www/html && \
+  rm -rf /opt/drupal && \
+  mkdir /var/www/html
 WORKDIR /var/www/html
+RUN mv /composer-file/composer.json /var/www/html/composer.json && \
+  chown www-data:www-data /var/www/html && \
+  apt-get update && \
+  apt-get install -y --no-install-recommends mariadb-client git unzip && \
+  rm -rf /var/lib/apt/lists/* && \
+  export COMPOSER_MEMORY_LIMIT=-1 && \
+  composer install && \
+  cat /var/www/html/core/lib/Drupal.php|grep VERS && \
+  ln -s /var/www/html/vendor/bin/drush /bin/drush && \
+  drush -v
 
 EXPOSE 80

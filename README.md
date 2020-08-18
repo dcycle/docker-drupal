@@ -22,6 +22,15 @@ The jenkins schedule is:
 
 See [this image on the Docker Hub](https://hub.docker.com/r/dcycle/drupal/).
 
+/var/www/html vs /opt/drupal
+-----
+
+This project is based on [the "official" Drupal Docker image](https://hub.docker.com/_/drupal/), which, in [this pull request](https://github.com/docker-library/drupal/pull/176), changed the location of Drupal from /var/www/html to /opt/drupal (with a symlink from /var/www/html).
+
+This causes various issues with downstream projects which depend on the dcycle/drupal image (tags 8drush, 8drush9 and 9 only, not 7 and 8); it has therefore been decided that for the dcycle/drupal, Drupal would remain in /var/www/html, rather than be in /opt/drupal.
+
+Thus, in ./Dockerfile-8drush, ./Dockerfile-8drush9 and ./Dockerfile-9, [code was added to completely remove /opt/drupal and /var/www/html, and reinstall with our own composer.json files at ./docker-resources/*/composer.json](https://github.com/dcycle/docker-drupal/pull/13).
+
 Docker tags
 -----
 
