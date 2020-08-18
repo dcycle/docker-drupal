@@ -1,5 +1,12 @@
 FROM drupal:8
 
+# See "/var/www/html vs /opt/drupal" in ./README.md
+# This code exists in ./Dockerfile-8, ./Dockerfile-8drush, ./Dockerfile-9
+# Remove the symlink
+RUN rm /var/www/html
+RUN rm -rf /opt/drupal
+WORKDIR /var/www/html
+
 RUN curl -sS https://getcomposer.org/installer | php && \
   mv composer.phar /usr/local/bin/composer && \
   apt-get update && \
