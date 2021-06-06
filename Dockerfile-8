@@ -19,4 +19,6 @@ RUN mv /composer-file/composer.json /var/www/html/composer.json && \
   ln -s /var/www/html/vendor/bin/drush /bin/drush && \
   drush -v
 
+RUN composer -v
+
 EXPOSE 80
