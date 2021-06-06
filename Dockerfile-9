@@ -6,12 +6,12 @@ RUN rm /var/www/html && \
   rm -rf /opt/drupal && \
   mkdir /var/www/html
 WORKDIR /var/www/html
+COPY docker-resources/9/composer.json /composer-file/composer.json
 RUN chown www-data:www-data /var/www/html && \
   apt-get update && \
   apt-get install -y --no-install-recommends mariadb-client git unzip && \
-  rm -rf /var/lib/apt/lists/*
-COPY docker-resources/9/composer.json /composer-file/composer.json
-RUN mv /composer-file/composer.json /var/www/html/composer.json && \
+  rm -rf /var/lib/apt/lists/* && \
+  mv /composer-file/composer.json /var/www/html/composer.json && \
   export COMPOSER_MEMORY_LIMIT=-1 && \
   composer install && \
   cat /var/www/html/core/lib/Drupal.php|grep VERS && \

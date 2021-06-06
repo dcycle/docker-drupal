@@ -23,4 +23,5 @@ source ./scripts/lib/rebuild-version.sh 8 8
 source ./scripts/lib/rebuild-version.sh 7 7
 source ./scripts/lib/rebuild-version.sh 8drush9 8
 source ./scripts/lib/rebuild-version.sh 8drush 8
-source ./scripts/lib/rebuild-version.sh 9 9
+source ./scripts/lib/rebuild-version.sh 9 8
+source ./scripts/lib/rebuild-version.sh 9php8 9
