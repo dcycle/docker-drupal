@@ -34,6 +34,13 @@ Thus, in ./Dockerfile-8drush, ./Dockerfile-8drush9 and ./Dockerfile-9, [code was
 Docker tags
 -----
 
+### Recommended tags
+
+* **9php8.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 9 with PHP 8 and Composer 2 image frozen in time.
+* **9php8**: The latest Drupal 9 image with PHP 8 and Composer 2.
+
+### Other tags
+
 * **8.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 8 image frozen in time.
 * **8**: The latest Drupal 8 image with Drush 8; this is no longer updated automatically after February 13, 2018. Please move to tag **8-drush9**.
 * **8drush9**: The latest Drupal 8 image with Drush 9; we use a different tag for Drush 9 and Drush 8 because Drush 9 no longer allows "drush dl", which was widely used on many Drupal 8-based images.
