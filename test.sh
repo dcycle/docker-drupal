@@ -3,6 +3,7 @@
 
 set -e
 
+docker pull drupal:9
 docker pull drupal:8
 docker pull drupal:7
 
