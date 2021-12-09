@@ -14,8 +14,7 @@ apt-get update
 apt-get install -y --no-install-recommends mariadb-client git unzip
 rm -rf /var/lib/apt/lists/*
 mv /composer-file/composer.json /var/www/html/composer.json
-export COMPOSER_MEMORY_LIMIT=-1
-composer install
+cd /var/www/html && composer install
 cat /var/www/html/core/lib/Drupal.php|grep VERS
 ln -s /var/www/html/vendor/bin/drush /bin/drush
 drush -v

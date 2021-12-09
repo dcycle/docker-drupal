@@ -9,6 +9,8 @@ ENV PATH=$PATH:/root/composer2/vendor/bin:/root/composer1/vendor/bin \
 COPY docker-resources/9/composer.json /composer-file/composer.json
 COPY docker-resources/9/build.sh /build.sh
 
+RUN /build.sh
+
 WORKDIR /var/www/html
 
 EXPOSE 80

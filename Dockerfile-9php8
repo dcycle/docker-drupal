@@ -3,6 +3,8 @@ FROM drupal:9
 COPY docker-resources/9php8/composer.json /composer-file/composer.json
 COPY docker-resources/9php8/build.sh /build.sh
 
+RUN /build.sh
+
 WORKDIR /var/www/html
 
 EXPOSE 80
