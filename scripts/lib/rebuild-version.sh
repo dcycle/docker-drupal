@@ -10,5 +10,5 @@ echo "*************"
 docker pull drupal:"$BASEIMAGEVERSION"
 
 # Rebuild the entire thing
-docker buildx build -f="Dockerfile-$VERSION" -t dcycle/drupal:"$VERSION" --platform linux/amd64,linux/arm64/v8 --push .
-docker buildx build -f="Dockerfile-$VERSION" -t dcycle/drupal:"$VERSION.$DATE" --platform linux/amd64,linux/arm64/v8 --push .
+docker buildx build -f="Dockerfile-$VERSION" -t dcycle/drupal:"$VERSION" --platform linux/amd64 --push .
+docker buildx build -f="Dockerfile-$VERSION" -t dcycle/drupal:"$VERSION.$DATE" --platform linux/amd64 --push .
