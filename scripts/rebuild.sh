@@ -22,9 +22,7 @@ DATE=`date '+%Y-%m-%d-%H-%M-%S-%Z'`
 git clone https://github.com/dcycle/prepare-docker-buildx.git
 cd prepare-docker-buildx
 export DOCKER_CLI_EXPERIMENTAL=enabled
-# We are using Qemu make to avoid https://askubuntu.com/questions/1339558.
-# This makes the build _a lot_ longer, like hours :(
-export INSTALL_QEMU_MAKE=1 && ./scripts/run.sh
+./scripts/run.sh
 cd ..
 
 docker buildx create --name mybuilder

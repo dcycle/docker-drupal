@@ -4,6 +4,8 @@
 #
 set -e
 
+echo "===> Installing libc-bin"
+apt-get install -y libc-bin
 echo "===> Installing composer"
 curl -sS https://getcomposer.org/installer | php
 echo "===> Moving composer to the right place"
