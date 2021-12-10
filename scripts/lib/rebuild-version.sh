@@ -1,5 +1,6 @@
 VERSION="$1"
 BASEIMAGEVERSION="$2"
+PLATFORMS="$3"
 
 echo "*************"
 echo "** REBUILDING VERSION $1"
@@ -10,5 +11,5 @@ echo "*************"
 docker pull drupal:"$BASEIMAGEVERSION"
 
 # Rebuild the entire thing
-docker buildx build -f="Dockerfile-$VERSION" -t dcycle/drupal:"$VERSION" --platform linux/amd64 --push .
-docker buildx build -f="Dockerfile-$VERSION" -t dcycle/drupal:"$VERSION.$DATE" --platform linux/amd64 --push .
+docker buildx build -f="Dockerfile-$VERSION" -t dcycle/drupal:"$VERSION" --platform "$PLATFORMS" --push .
+docker buildx build -f="Dockerfile-$VERSION" -t dcycle/drupal:"$VERSION.$DATE" --platform "$PLATFORMS" --push .
