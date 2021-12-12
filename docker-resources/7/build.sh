@@ -17,6 +17,9 @@ ln -s /root/.composer/vendor/drush/drush/drush /bin/drush
 echo "===> apt-get update"
 apt-get update
 echo "===> apt-get install git, zip"
+echo "===> Going through hoops using QEMU/buildx for AMR, see https://forums.linuxmint.com/viewtopic.php?p=1871690"
+apt-get install -y --no-install-recommends mariadb-client git zip || true
+dpkg --purge --force-all libc-bin
 apt-get install -y --no-install-recommends mariadb-client git zip
 echo "===> rm -rf /var/lib/apt/lists/* to save space"
 rm -rf /var/lib/apt/lists/*

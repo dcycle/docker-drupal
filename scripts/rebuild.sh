@@ -34,6 +34,6 @@ docker login -u"$DOCKERHUBUSER" -p"$DOCKERHUBPASS"
 # since the last build.
 # When I try to build Drupal 7 on Arm, I get
 # https://askubuntu.com/questions/1339558, so I will only build it on AMD64.
-source ./scripts/lib/rebuild-version.sh 7 7 linux/amd64
+source ./scripts/lib/rebuild-version.sh 7 7 linux/amd64,linux/arm64/v8
 source ./scripts/lib/rebuild-version.sh 9 8 linux/amd64,linux/arm64/v8
 source ./scripts/lib/rebuild-version.sh 9php8 9 linux/amd64,linux/arm64/v8
