@@ -4,6 +4,9 @@
 #
 set -e
 
+echo "===> (9) put composer.json in /composer-file/composer.json"
+/docker-resources/tools/check-integrity.sh
+COPY /docker-resources/9/composer.json /composer-file/composer.json
 echo "===> (9) rm /usr/local/bin/composer"
 rm /usr/local/bin/composer
 echo "===> (9) cd /opt"
