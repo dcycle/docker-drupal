@@ -6,6 +6,7 @@ ENV PATH=$PATH:/root/composer2/vendor/bin:/root/composer1/vendor/bin \
   COMPOSER_HOME=/root/composer2 \
   COMPOSER1_HOME=/root/composer1
 
+COPY docker-resources /docker-resources
 RUN cd /docker-resources/9 && /build.sh && rm -rf /docker-resources
 
 WORKDIR /var/www/html
