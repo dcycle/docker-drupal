@@ -17,9 +17,6 @@ ln -s /root/.composer/vendor/drush/drush/drush /bin/drush
 echo "===> (7) apt-get update"
 apt-get update
 echo "===> (7) apt-get install git, zip"
-echo "===> Going through hoops using QEMU/buildx for AMR, see https://forums.linuxmint.com/viewtopic.php?p=1871690"
-apt-get install -y --no-install-recommends mariadb-client git zip || true
-dpkg --purge --force-all libc-bin
 apt-get install -y --no-install-recommends mariadb-client git zip
 echo "===> (7) rm -rf /var/lib/apt/lists/* to save space"
 rm -rf /var/lib/apt/lists/*
@@ -30,3 +27,4 @@ drush dl drupal-7
 echo "===> (7) moving drush 7 to /var/www/html"
 cp -r /var/www/latest-drupal/drupal-*/* /var/www/html
 echo "===> (7) All done installing Drupal 7"
+/docker-resources/tools/check-integrity.sh "Drupal 9, PHP 8"
