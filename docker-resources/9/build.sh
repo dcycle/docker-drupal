@@ -37,7 +37,6 @@ apt-get update
 echo "===> apt-get install git, zip"
 echo "===> Going through hoops using QEMU/buildx for AMR, see https://forums.linuxmint.com/viewtopic.php?p=1871690"
 apt-get install -y --no-install-recommends mariadb-client git zip
-dpkg --purge --force-all libc-bin
 /docker-resources/tools/check-integrity.sh 47
 apt-get install -y --no-install-recommends mariadb-client git zip
 rm -rf /var/lib/apt/lists/*
