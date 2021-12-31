@@ -46,3 +46,4 @@ cat /var/www/html/core/lib/Drupal.php|grep VERS
 ln -s /var/www/html/vendor/bin/drush /bin/drush
 cd /var/www/html && drush -v
 echo "===> (9) All done installing Drupal 9 (php 7)"
+/docker-resources/tools/check-integrity.sh
