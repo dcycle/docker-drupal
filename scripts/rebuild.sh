@@ -36,6 +36,6 @@ fi
 # since the last build.
 # source ./scripts/lib/rebuild-version.sh 7 7 linux/amd64,linux/arm64/v8
 # source ./scripts/lib/rebuild-version.sh 9 8 linux/amd64,linux/arm64/v8
-source ./scripts/lib/rebuild-version.sh 9php8 9 linux/amd64,linux/arm64/v8
+# source ./scripts/lib/rebuild-version.sh 9php8 9 linux/amd64,linux/arm64/v8
 # source ./scripts/lib/rebuild-version.sh 9php8 9 linux/amd64
 source ./scripts/lib/rebuild-version.sh 9 8 linux/arm64/v8,linux/amd64
