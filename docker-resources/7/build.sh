@@ -27,4 +27,4 @@ drush dl drupal-7
 echo "===> (7) moving drush 7 to /var/www/html"
 cp -r /var/www/latest-drupal/drupal-*/* /var/www/html
 echo "===> (7) All done installing Drupal 7"
-/docker-resources/tools/check-integrity.sh "Drupal 9, PHP 8"
+/docker-resources/tools/check-integrity.sh "Drupal 7"

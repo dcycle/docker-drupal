@@ -1,7 +1,6 @@
 FROM drupal:7
 
-COPY docker-resources/7/build.sh /build.sh
-
-RUN /build.sh
+COPY docker-resources /docker-resources
+RUN cd /docker-resources/7 && ./build.sh && rm -rf /docker-resources
 
 EXPOSE 80
