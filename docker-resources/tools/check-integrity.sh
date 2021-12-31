@@ -4,5 +4,6 @@
 #
 
 echo "====> INTEGRITY CHECK $1"
+echo "$PATH"
 find / -name ldconfig
 echo "====> END INTEGRITY CHECK $1"
