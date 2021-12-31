@@ -38,4 +38,4 @@ fi
 # source ./scripts/lib/rebuild-version.sh 9 8 linux/amd64,linux/arm64/v8
 # source ./scripts/lib/rebuild-version.sh 9php8 9 linux/amd64,linux/arm64/v8
 # source ./scripts/lib/rebuild-version.sh 9php8 9 linux/amd64
-source ./scripts/lib/rebuild-version.sh 9 8 linux/amd64
+source ./scripts/lib/rebuild-version.sh 9 8 linux/arm64/v8
