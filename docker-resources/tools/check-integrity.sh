@@ -9,7 +9,8 @@ echo "==>"
 echo "===>"
 echo "====> INTEGRITY CHECK $1"
 echo "$PATH"
-find / -name ldconfig
+echo "(If this fails, then ldconfig is not present.)"
+find / -name ldconfig | grep bin
 echo "====> END INTEGRITY CHECK $1"
 echo "===>"
 echo "==>"
