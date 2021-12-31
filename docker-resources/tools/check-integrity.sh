@@ -2,6 +2,7 @@
 #
 # Making sure that certain files exist and work as expected.
 #
+set -e
 
 echo ">"
 echo "=>"
