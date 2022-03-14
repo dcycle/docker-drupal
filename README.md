@@ -34,16 +34,18 @@ Thus, in ./Dockerfile-9php8, [code was added to completely remove /opt/drupal an
 Docker tags
 -----
 
-### Recommended tags
+### Recommended Docker tags
 
 * **9php8.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 9 with PHP 8 and Composer 2 image frozen in time.
-* **9php8**: The latest Drupal 9 image with PHP 8 and Composer 2.
+* **9php8**: The latest Drupal 9 image with PHP 8 and Composer 2, rebuilt Wednesdays.
+* **9.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 9 with PHP 7 and Composer 2 image frozen in time.
+* **9**: The latest Drupal 9 image with PHP 7 and Composer 2, rebuilt Wednesdays.
 * **7.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 7 image frozen in time.
-* **7**: The latest Drupal 7 image.
+* **7**: The latest Drupal 7 image, rebuilt Wednesdays.
 
-Other tags are deprecated, including Drupal 8 and Drupal 9 on PHP 7.
+Other tags, including PHP 8, are deprecated.
 
-History
+Usage example
 -----
 
-In March 2022, in response to [this issue](https://github.com/dcycle/docker-drupal/issues/22), we have addded 
+See [Dcycle Drupal Starterkit](https://github.com/dcycle/starterkit-drupal8site).
