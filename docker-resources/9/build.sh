@@ -4,9 +4,6 @@
 #
 set -e
 
-echo "===> (9) put composer.json in /composer-file/composer.json"
-mkdir -p /composer-file
-cp /docker-resources/9/composer.json /composer-file/composer.json
 echo "===> (9) rm /usr/local/bin/composer"
 rm /usr/local/bin/composer
 echo "===> (9) cd /opt"
@@ -34,6 +31,9 @@ mkdir /var/www/html
 chown www-data:www-data /var/www/html
 apt-get update
 echo "===> apt-get install git, zip"
+echo "===> Going through hoops using QEMU/buildx for AMR, see https://forums.linuxmint.com/viewtopic.php?p=1871690"
+apt-get install -y --no-install-recommends mariadb-client git zip || true
+dpkg --purge --force-all libc-bin
 apt-get install -y --no-install-recommends mariadb-client git zip
 rm -rf /var/lib/apt/lists/*
 mv /composer-file/composer.json /var/www/html/composer.json
@@ -42,4 +42,3 @@ cat /var/www/html/core/lib/Drupal.php|grep VERS
 ln -s /var/www/html/vendor/bin/drush /bin/drush
 cd /var/www/html && drush -v
 echo "===> (9) All done installing Drupal 9 (php 7)"
-/docker-resources/tools/check-integrity.sh "Drupal 9, PHP 7"
