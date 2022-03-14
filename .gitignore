@@ -1,0 +1,3 @@
+# We want to ignore environment variables used by Docker Compose
+.env
+.DS_Store

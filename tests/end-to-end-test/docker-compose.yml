@@ -1,0 +1,34 @@
+---
+version: '3'
+
+services:
+  drupal:
+    # An image is necessary to use docker-compose without specifying
+    # files, as in docker-compose exec ...
+    image: test-drupal-9php8
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      HASH_SALT: ${HASH_SALT}
+    ports:
+      - "80"
+    volumes:
+      - "drupal-files:/var/www/html/sites/default/files:rw"
+      - "drupal-private-files:/drupal-private-files:rw"
+      - "./docker-resources:/docker-resources"
+    links:
+      - mysql:mysql
+    working_dir: /var/www/html
+
+  # Database server
+  mysql:
+    image: mariadb
+    environment:
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+    volumes:
+      - "mysql:/var/lib/mysql"
+
+volumes:
+  mysql:
+  drupal-files:
+  drupal-private-files:
