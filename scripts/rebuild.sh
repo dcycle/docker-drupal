@@ -35,3 +35,4 @@ docker login -u"$DOCKERHUBUSER" -p"$DOCKERHUBPASS"
 source ./scripts/lib/rebuild-version.sh 7 7 linux/amd64
 source ./scripts/lib/rebuild-version.sh 9 8 linux/amd64,linux/arm64/v8
 source ./scripts/lib/rebuild-version.sh 9php8 9 linux/amd64
+source ./scripts/lib/rebuild-version.sh 9php8-fpm-alpine 9-fpm-alpine linux/amd64,linux/arm/v6
