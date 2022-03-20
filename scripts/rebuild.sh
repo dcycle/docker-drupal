@@ -5,7 +5,7 @@
 
 set -e
 
-./scripts/test.sh
+./test.sh
 
 CREDENTIALS="$HOME/.dcycle-docker-credentials.sh"
 
