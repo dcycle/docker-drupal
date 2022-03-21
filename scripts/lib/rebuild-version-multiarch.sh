@@ -1,5 +1,6 @@
 VERSION="$1"
 BASEIMAGEVERSION="$2"
+PLATFORMS="$3"
 
 echo "*"
 echo "**"
@@ -14,22 +15,22 @@ echo "**********"
 echo "***********"
 echo "************"
 echo "*************"
-echo "** REBUILDING VERSION $VERSION"
+echo "** REBUILDING MULTI-ARCH VERSION $VERSION"
 echo "** USING BASE IMAGE $BASEIMAGEVERSION"
+echo "** USING PLATFORM(S) $PLATFORMS"
 echo "*************"
 
 # Start by getting the latest version of the official drupal image
 docker pull drupal:"$BASEIMAGEVERSION"
 
 # Rebuild the entire thing
-docker build -f="Dockerfile-$VERSION" -t dcycle/drupal:"$VERSION" .
-docker build -f="Dockerfile-$VERSION" -t dcycle/drupal:"$VERSION.$DATE" .
-docker push dcycle/drupal:"$VERSION"
-docker push dcycle/drupal:"$VERSION.$DATE"
+docker buildx build -f="Dockerfile-$VERSION" -t dcycle/drupal:"$VERSION" --platform "$PLATFORMS" --push .
+docker buildx build -f="Dockerfile-$VERSION" -t dcycle/drupal:"$VERSION.$DATE" --platform "$PLATFORMS" --push .
 
 echo "*************"
-echo "** DONE REBUILDING VERSION $VERSION"
+echo "** DONE REBUILDING MULTI-ARCH VERSION $VERSION"
 echo "** DONE USING BASE IMAGE $BASEIMAGEVERSION"
+echo "** DONE USING PLATFORM(S) $PLATFORMS"
 echo "*************"
 echo "************"
 echo "***********"
