@@ -20,6 +20,8 @@ fi
 
 DATE=`date '+%Y-%m-%d-%H-%M-%S-%Z'`
 
+docker login -u"$DOCKERHUBUSER" -p"$DOCKERHUBPASS"
+
 # Rebuild the entire thing because there may be security updates
 # since the last build.
 source ./scripts/lib/rebuild-version.sh 7 7
