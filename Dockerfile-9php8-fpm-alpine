@@ -1,7 +1,7 @@
 FROM drupal:9-fpm-alpine
 
 COPY docker-resources /docker-resources
-RUN cd /docker-resources/9php8-fpm-alpine && ./build.sh && rm -rf /docker-resources
+RUN apk add --no-cache bash && cd /docker-resources/9php8-fpm-alpine && ./build.sh && rm -rf /docker-resources
 
 WORKDIR /var/www/html
 
