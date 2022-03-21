@@ -8,4 +8,4 @@ docker-compose \
   -f docker-compose.yml \
   -f docker-compose."$1".yml \
   up -d --build
-docker-compose exec drupal /bin/bash -c '/docker-resources/deploy.sh'
+docker-compose exec -T drupal /bin/bash -c '/docker-resources/deploy.sh'
