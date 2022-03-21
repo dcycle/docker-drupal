@@ -5,6 +5,8 @@
 
 set -e
 
+./test.sh
+
 CREDENTIALS="$HOME/.dcycle-docker-credentials.sh"
 
 if [ ! -f "$CREDENTIALS" ]; then
@@ -33,6 +35,4 @@ docker login -u"$DOCKERHUBUSER" -p"$DOCKERHUBPASS"
 # Rebuild the entire thing because there may be security updates
 # since the last build.
 source ./scripts/lib/rebuild-version.sh 7 7 linux/amd64
-source ./scripts/lib/rebuild-version.sh 9 8 linux/amd64,linux/arm64/v8
-source ./scripts/lib/rebuild-version.sh 9php8 9 linux/amd64
-source ./scripts/lib/rebuild-version.sh 9php8-fpm-alpine 9-fpm-alpine linux/amd64,linux/arm/v6
+source ./scripts/lib/rebuild-version.sh 9php8-fpm-alpine 9-fpm-alpine linux/amd64,linux/arm64/v8
