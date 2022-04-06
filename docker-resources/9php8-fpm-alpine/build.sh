@@ -8,6 +8,6 @@ set -e
 
 echo "===> (9php8) apk add --no-cache mariadb-client git zip"
 
-apk add --no-cache mariadb-client git zip
+apk add --no-cache mariadb-client git zip patch
 
 /docker-resources/9php8-common/build-step-2.sh
