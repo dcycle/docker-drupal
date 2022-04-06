@@ -40,11 +40,13 @@ Docker tags
 * **9php8**: The latest Drupal 9 image with PHP 8 and Composer 2, rebuilt Wednesdays.
 * **7.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 7 image frozen in time.
 * **7**: The latest Drupal 7 image, rebuilt Wednesdays.
+* **9php8-fpm-alpine.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 9 image with PHP 8 and Composer 2, with FPM on Alpine, frozen in time.
+* **9php8-fpm-alpine**: A Drupal 9 image with PHP 8 and Composer 2, with FPM on Alpine.
 
 ### Experimental tags
 
-* **9php8-fpm-alpine.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 9 image with PHP 8 and Composer 2, with FPM on Alpine, frozen in time.
-* **9php8-fpm-alpine**: A Drupal 9 image with PHP 8 and Composer 2, with FPM on Alpine.
+* **9php8-fpm-alpine-dev.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 9 image with PHP 8 and Composer 2, with FPM on Alpine, with opcache disabled and Xdebug installed, frozen in time.
+* **9php8-fpm-alpine-dev**: A Drupal 9 image with PHP 8 and Composer 2, with FPM on Alpine, with opcache disabled and Xdebug installed.
 
 Other tags, including PHP 8, and Drupal 9 on PHP 7, are deprecated.
 
