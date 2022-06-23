@@ -26,7 +26,7 @@ echo " => about to deploy $VERSION"
 ./deploy.sh "$VERSION"
 echo " => just deployed $VERSION"
 echo " => make sure drush uli works"
-docker-compose exec drupal /bin/bash -c 'drush uli'
+docker-compose exec -T drupal /bin/bash -c 'drush uli'
 echo " => about to destroy $VERSION"
 ./destroy.sh
 echo " => just destroyed $VERSION"
