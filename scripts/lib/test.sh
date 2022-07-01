@@ -1,4 +1,15 @@
+#!/bin/bash
+#
+# Test a specific version of Drupal.
+#
+set -e
+
 VERSION="$1"
+
+if [ -z "$VERSION" ]; then
+  >&2 echo "Please specify a version."
+  exit
+fi
 
 echo "*************"
 echo "** TEST IMAGE $VERSION"

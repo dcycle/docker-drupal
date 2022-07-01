@@ -12,5 +12,9 @@ docker build -f="Dockerfile-7" -t test-drupal-7 .
 echo "Testing Dockerfile-9php8"
 docker build -f="Dockerfile-9php8" -t test-drupal-9php8 .
 
-source ./scripts/lib/test.sh 7
-source ./scripts/lib/test.sh 9php8
+./scripts/lib/test.sh 7
+./scripts/lib/test.sh 9php8
+
+echo ""
+echo "Done with all continuous integration tests, your code should be good to go!!!"
+echo ""

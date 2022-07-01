@@ -34,7 +34,8 @@
         "allow-plugins": {
             "drush/drush": true,
             "composer/installers": true,
-            "drupal/*": true
+            "drupal/*": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
     "extra": {
@@ -44,15 +45,15 @@
             }
         },
         "installer-paths": {
-            "/var/www/html/core": ["type:drupal-core"],
-            "/var/www/html/libraries/{$name}": ["type:drupal-library"],
-            "/var/www/html/modules/contrib/{$name}": ["type:drupal-module"],
-            "/var/www/html/profiles/contrib/{$name}": ["type:drupal-profile"],
-            "/var/www/html/themes/contrib/{$name}": ["type:drupal-theme"],
-            "/var/www/html/drush/Commands/contrib/{$name}": ["type:drupal-drush"],
-            "/var/www/html/modules/custom/{$name}": ["type:drupal-custom-module"],
-            "/var/www/html/profiles/custom/{$name}": ["type:drupal-custom-profile"],
-            "/var/www/html/themes/custom/{$name}": ["type:drupal-custom-theme"]
+            "core": ["type:drupal-core"],
+            "libraries/{$name}": ["type:drupal-library"],
+            "modules/contrib/{$name}": ["type:drupal-module"],
+            "profiles/contrib/{$name}": ["type:drupal-profile"],
+            "themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/Commands/contrib/{$name}": ["type:drupal-drush"],
+            "modules/custom/{$name}": ["type:drupal-custom-module"],
+            "profiles/custom/{$name}": ["type:drupal-custom-profile"],
+            "themes/custom/{$name}": ["type:drupal-custom-theme"]
         },
         "drupal-core-project-message": {
             "include-keys": ["homepage", "support"],
