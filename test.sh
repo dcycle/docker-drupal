@@ -4,7 +4,7 @@
 #
 set -e
 
-docker pull drupal:10
+docker pull drupal:10.0-rc-php8.1-fpm-alpine
 docker pull drupal:9
 docker pull drupal:7
 
