@@ -16,6 +16,7 @@ services:
       - "drupal-files:/var/www/html/sites/default/files:rw"
       - "drupal-private-files:/drupal-private-files:rw"
       - "./docker-resources:/docker-resources"
+      - "./scripts:/scripts"
     links:
       - mysql:mysql
     working_dir: /var/www/html
