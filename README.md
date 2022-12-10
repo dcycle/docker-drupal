@@ -6,7 +6,7 @@ A Drupal+Drush Docker image, updated Wednesdays
 This image was created for two reasons:
 
  * [The "official" Drupal Docker image](https://hub.docker.com/_/drupal/) does not have Drush.
- * It takes a few days for it be updated after major security releases.
+ * It takes a few days for it to be updated after major security releases.
 
 How security updates are managed
 -----
