@@ -19,6 +19,7 @@ apk add --no-cache --virtual .build-deps --update \
   linux-headers autoconf $PHPIZE_DEPS
 pecl install xdebug
 docker-php-ext-enable xdebug
+apk del -f .build-deps
 
 echo "xdebug.start_with_request=trigger" >> /usr/local/etc/php/conf.d/xdebug.ini
 echo "xdebug.mode=profile" >> /usr/local/etc/php/conf.d/xdebug.ini
