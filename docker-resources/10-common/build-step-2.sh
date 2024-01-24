@@ -5,6 +5,7 @@
 set -e
 
 echo "===> (10) composer install"
+cd /var/www/html
 ls -lah
 composer config --no-plugins allow-plugins.php-http/discovery true
 mv /composer-file/composer.json /var/www/html/composer.json
