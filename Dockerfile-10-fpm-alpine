@@ -1,8 +1,7 @@
-FROM drupal:10.0-rc-php8.1-fpm-alpine
-
-COPY docker-resources /docker-resources
-RUN apk add --no-cache bash && cd /docker-resources/10-fpm-alpine && ./build.sh && rm -rf /docker-resources
+FROM drupal:10-php8.1-fpm-alpine
 
 WORKDIR /var/www/html
+COPY docker-resources /docker-resources
+RUN apk add --no-cache bash && cd /docker-resources/10-fpm-alpine && ./build.sh && rm -rf /docker-resources
 
 EXPOSE 80
