@@ -1,4 +1,4 @@
-FROM drupal:10.0-rc-php8.1-fpm-alpine
+FROM drupal:10-php8.1-fpm-alpine
 
 COPY docker-resources /docker-resources
 RUN apk add --no-cache bash && cd /docker-resources/10-fpm-alpine && ./build.sh && rm -rf /docker-resources
