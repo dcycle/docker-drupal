@@ -5,7 +5,7 @@
 set -ex
 
 if [ -z "$1" ]; then
-  >&2 echo "Please provide an argument such as 7 or 9php8"
+  >&2 echo "Please provide an argument such as 7 or 10"
   exit 1
 fi
 

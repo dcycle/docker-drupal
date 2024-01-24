@@ -27,26 +27,19 @@ See [this image on the Docker Hub](https://hub.docker.com/r/dcycle/drupal/).
 
 This project is based on [the "official" Drupal Docker image](https://hub.docker.com/_/drupal/), which, in [this pull request](https://github.com/docker-library/drupal/pull/176), changed the location of Drupal from /var/www/html to /opt/drupal (with a symlink from /var/www/html).
 
-This causes various issues with downstream projects which depend on the dcycle/drupal:9php8 image; it has therefore been decided that for the dcycle/drupal, Drupal would remain in /var/www/html, rather than be in /opt/drupal.
+This causes various issues with downstream projects which depend on the dcycle/drupal image; it has therefore been decided that for the dcycle/drupal, Drupal would remain in /var/www/html, rather than be in /opt/drupal.
 
-Thus, in ./Dockerfile-9php8, [code was added to completely remove /opt/drupal and /var/www/html, and reinstall with our own composer.json files at ./docker-resources/*/composer.json](https://github.com/dcycle/docker-drupal/pull/13).
+Thus, in ./Dockerfile-10-php-alpine, [code was added to completely remove /opt/drupal and /var/www/html, and reinstall with our own composer.json files at ./docker-resources/*/composer.json](https://github.com/dcycle/docker-drupal/pull/13).
 
 Docker tags
 -----
 
 ### Recommended Docker tags
 
-* **9php8.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 9 with PHP 8 and Composer 2 image frozen in time.
-* **9php8**: The latest Drupal 9 image with PHP 8 and Composer 2, rebuilt Wednesdays.
+* **10-fpm-alpine.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 9 with PHP 8 and Composer 2 image frozen in time.
+* **10-fpm-alpine**: The latest Drupal 9 image with PHP 8 and Composer 2, rebuilt Wednesdays.
 * **7php8.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 7 image frozen in time.
 * **7php8**: The latest Drupal 7 image, rebuilt Wednesdays.
-* **9php8-fpm-alpine.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 9 image with PHP 8 and Composer 2, with FPM on Alpine, frozen in time.
-* **9php8-fpm-alpine**: A Drupal 9 image with PHP 8 and Composer 2, with FPM on Alpine.
-
-### Experimental tags
-
-* **9php8-fpm-alpine-dev.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 9 image with PHP 8 and Composer 2, with FPM on Alpine, with opcache disabled and Xdebug installed, frozen in time.
-* **9php8-fpm-alpine-dev**: A Drupal 9 image with PHP 8 and Composer 2, with FPM on Alpine, with opcache disabled and Xdebug installed.
 
 Other tags, including PHP 8, and Drupal 9 on PHP 7, are deprecated.
 
