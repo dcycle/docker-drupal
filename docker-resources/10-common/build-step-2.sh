@@ -5,11 +5,10 @@
 set -e
 
 echo "===> (10) composer install"
-cd /var/www/html
-ls -lah
-composer config --no-plugins allow-plugins.php-http/discovery true
 mv /composer-file/composer.json /var/www/html/composer.json
-cd /var/www/html && composer install
+cd /var/www/html && \
+  composer config --no-plugins allow-plugins.php-http/discovery true && \
+  composer install
 rm -Rf vendor/drush
 composer install
 ls -lah /var/www/html
