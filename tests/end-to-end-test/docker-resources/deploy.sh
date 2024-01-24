@@ -4,7 +4,7 @@
 # an environment for development or testing, which contains a full Drupal
 # 8 installation with a running website and our custom modules.
 #
-set -ex
+set -e
 
 if [ -z "$1" ]; then
   >&2 echo "Please provide an argument such as 7 or 9php8"

@@ -2,7 +2,7 @@
 #
 # Deploy an environment.
 #
-set -ex
+set -e
 
 if [ -z "$1" ]; then
   >&2 echo "Please provide an argument such as 7 or 10"

@@ -3,4 +3,4 @@ version: '3'
 
 services:
   drupal:
-    image: test-drupal-10
+    image: test-drupal-10-fpm-alpine
