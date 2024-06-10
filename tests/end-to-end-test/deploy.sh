@@ -9,13 +9,13 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
-docker-compose \
+docker compose \
   -f docker-compose.yml \
   -f docker-compose."$1".yml \
   down -v
-docker-compose \
+docker compose \
   -f docker-compose.yml \
   -f docker-compose."$1".yml \
   up -d --build
-docker-compose ps
-docker-compose exec -T drupal /bin/bash -c "/docker-resources/deploy.sh $1"
+docker compose ps
+docker compose exec -T drupal /bin/bash -c "/docker-resources/deploy.sh $1"
