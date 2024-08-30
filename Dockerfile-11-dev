@@ -1,0 +1,11 @@
+FROM drupal:11-php8.3-fpm-alpine
+
+COPY docker-resources /docker-resources
+RUN apk add --no-cache bash && \
+  cd /docker-resources/11-dev && \
+  ./build.sh && \
+  rm -rf /docker-resources
+
+WORKDIR /var/www/html
+
+EXPOSE 80
