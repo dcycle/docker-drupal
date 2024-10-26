@@ -36,8 +36,10 @@ Docker tags
 
 ### Recommended Docker tags
 
-* **10-fpm-alpine.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 9 with PHP 8 and Composer 2 image frozen in time.
-* **10-fpm-alpine**: The latest Drupal 9 image with PHP 8 and Composer 2, rebuilt Wednesdays.
+* **11.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 11 with PHP 8 and Composer 2 image frozen in time.
+* **11**: The latest Drupal 11 image with PHP 8 and Composer 2, rebuilt Wednesdays.
+* **10-fpm-alpine.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 10 with PHP 8 and Composer 2 image frozen in time.
+* **10-fpm-alpine**: The latest Drupal 10 image with PHP 8 and Composer 2, rebuilt Wednesdays.
 * **7php8.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 7 image frozen in time.
 * **7php8**: The latest Drupal 7 image, rebuilt Wednesdays.
 
