@@ -6,7 +6,7 @@ set -e
 
 /docker-resources/11-common/build-step-1.sh
 
-echo "===> (11) apk add --no-cache mariadb-client git zip"
+echo "===> (10) apk add --no-cache mariadb-client git zip"
 
 apk add --no-cache mariadb-client git zip patch
 

@@ -12,6 +12,12 @@ if [ -z "$1" ]; then
 fi
 VERSION="$1"
 
+echo "======================"
+echo $1;
+echo $MARIADB_ROOT_PASSWORD;
+echo "======================"
+
+
 if [ -z "$MARIADB_ROOT_PASSWORD" ]; then
   >&2 echo 'MARIADB_ROOT_PASSWORD should always be set; please destroy your'
   >&2 echo 'environment using "docker compose down -v", then restart it'

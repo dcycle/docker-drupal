@@ -11,14 +11,14 @@ echo "Testing Dockerfile-10-fpm-alpine"
 docker build -f="Dockerfile-10-fpm-alpine" -t test-drupal-10-fpm-alpine .
 echo "Testing Dockerfile-10-fpm-alpine-dev"
 docker build -f="Dockerfile-10-fpm-alpine-dev" -t test-drupal-10-fpm-alpine-dev .
-echo "Testing Dockerfile-11"
-docker build -f="Dockerfile-11" -t test-drupal-11 .
-echo "Testing Dockerfile-11"
-docker build -f="Dockerfile-11-dev" -t test-drupal-11-dev .
+echo "Testing Dockerfile-11-fpm-alpine"
+docker build -f="Dockerfile-11-fpm-alpine" -t test-drupal-11-fpm-alpine .
+echo "Testing Dockerfile-11-fpm-alpine"
+docker build -f="Dockerfile-11-fpm-alpine-dev" -t test-drupal-11-fpm-alpine-dev .
 
 
 ./scripts/lib/test.sh 10-fpm-alpine
-./scripts/lib/test.sh 11
+./scripts/lib/test.sh 11-fpm-alpine
 
 echo ""
 echo "Done with all continuous integration tests, your code should be good to go!!!"
