@@ -7,7 +7,7 @@
 set -e
 
 if [ -z "$1" ]; then
-  >&2 echo "Please provide an argument such as 7 or 9php8"
+  >&2 echo "Please provide an argument such as 10 or 11php8"
   exit 1
 fi
 VERSION="$1"

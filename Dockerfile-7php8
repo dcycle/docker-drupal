@@ -1,8 +1,0 @@
-FROM drupal:7-php8.1
-
-WORKDIR /var/www/html
-
-COPY docker-resources /docker-resources
-RUN cd /docker-resources/7 && ./build.sh && rm -rf /docker-resources
-
-EXPOSE 80
