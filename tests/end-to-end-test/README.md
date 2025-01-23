@@ -1,1 +1,1 @@
-Full lifecycle test in Drupal 9 (php 8).
+Full lifecycle test in Drupal 10 (php 8).

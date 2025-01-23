@@ -40,8 +40,6 @@ Docker tags
 * **11**: The latest Drupal 11 image with PHP 8 and Composer 2, rebuilt Wednesdays.
 * **10-fpm-alpine.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 10 with PHP 8 and Composer 2 image frozen in time.
 * **10-fpm-alpine**: The latest Drupal 10 image with PHP 8 and Composer 2, rebuilt Wednesdays.
-* **7php8.YYYY-MM-DD-HH-MM-SS-UTC**: A Drupal 7 image frozen in time.
-* **7php8**: The latest Drupal 7 image, rebuilt Wednesdays.
 
 Other tags, including PHP 8, and Drupal 9 on PHP 7, are deprecated.
 
