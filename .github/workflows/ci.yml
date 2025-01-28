@@ -3,10 +3,10 @@ name: Drupal Docker CI
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
   workflow_dispatch:  # Enable manual trigger
 
 jobs:
@@ -31,18 +31,24 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-buildx-
 
-      # Step 4: Remove conflicting containerd package
-      - name: Remove conflicting containerd package
+      # Step 4: Remove conflicting containerd packages
+      - name: Remove conflicting containerd packages
         run: |
-          sudo apt-get remove -y containerd
+          sudo apt-get remove -y containerd containerd.io
+          sudo apt-get autoremove -y
 
-      # Step 5: Install Docker
+      # Step 5: Clean apt cache and update
+      - name: Clean apt cache and update
+        run: |
+          sudo apt-get clean
+          sudo apt-get update
+
+      # Step 6: Install Docker
       - name: Install Docker
         run: |
-          sudo apt-get update
           sudo apt-get install -y docker.io
 
-      # Step 6: Debugging info (optional)
+      # Step 7: Debugging info (optional)
       - name: Debugging Docker environment
         run: |
           docker --version
@@ -52,7 +58,7 @@ jobs:
           echo "Listing files in the repository:"
           ls -la
 
-      # Step 7: Run the test.sh script
+      # Step 8: Run the test.sh script
       - name: Run test.sh script
         run: |
           chmod +x ./test.sh
