@@ -1,0 +1,49 @@
+name: Drupal Docker CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  docker-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      # Step 2: Set up Docker
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+
+      - name: Set up Docker cache
+        uses: actions/cache@v2
+        with:
+          path: /tmp/.buildx-cache
+          key: ${{ runner.os }}-buildx-${{ github.sha }}
+          restore-keys: |
+            ${{ runner.os }}-buildx-
+
+      # Step 3: Install Docker (Ubuntu runner has it pre-installed, this is just a safety step)
+      - name: Install Docker
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y docker.io
+
+      # Step 4: Run the test.sh script
+      - name: Run test.sh script
+        run: |
+          chmod +x ./test.sh
+          ./test.sh
+
+      # Optional Step: Upload logs/artifacts if you need to share them
+      # - name: Upload build logs
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: build-logs
+      #     path: /path/to/logs
