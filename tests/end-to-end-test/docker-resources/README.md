@@ -1,1 +1,1 @@
-Scripts meant to be run on Drupal 9 php 8.
+Scripts meant to be run on Drupal 10 php 8.

@@ -5,7 +5,7 @@ services:
   drupal:
     # An image is necessary to use docker compose without specifying
     # files, as in docker compose exec ...
-    image: test-drupal-9php8
+    image: test-drupal-10-fpm-alpine
     environment:
       MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
       MYSQL_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
