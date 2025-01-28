@@ -3,10 +3,11 @@ name: Drupal Docker CI
 on:
   push:
     branches:
-      - master
+      - main
   pull_request:
     branches:
-      - master
+      - main
+  workflow_dispatch:  # Enable manual trigger
 
 jobs:
   docker-build:
@@ -17,33 +18,42 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      # Step 2: Set up Docker
+      # Step 2: Set up Docker Buildx
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v2
 
+      # Step 3: Set up Docker cache (updated to v3)
       - name: Set up Docker cache
-        uses: actions/cache@v2
+        uses: actions/cache@v3
         with:
           path: /tmp/.buildx-cache
           key: ${{ runner.os }}-buildx-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-buildx-
 
-      # Step 3: Install Docker (Ubuntu runner has it pre-installed, this is just a safety step)
+      # Step 4: Remove conflicting containerd package
+      - name: Remove conflicting containerd package
+        run: |
+          sudo apt-get remove -y containerd
+
+      # Step 5: Install Docker
       - name: Install Docker
         run: |
           sudo apt-get update
           sudo apt-get install -y docker.io
 
-      # Step 4: Run the test.sh script
+      # Step 6: Debugging info (optional)
+      - name: Debugging Docker environment
+        run: |
+          docker --version
+          docker info
+          echo "Current working directory:"
+          pwd
+          echo "Listing files in the repository:"
+          ls -la
+
+      # Step 7: Run the test.sh script
       - name: Run test.sh script
         run: |
           chmod +x ./test.sh
           ./test.sh
-
-      # Optional Step: Upload logs/artifacts if you need to share them
-      # - name: Upload build logs
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: build-logs
-      #     path: /path/to/logs
