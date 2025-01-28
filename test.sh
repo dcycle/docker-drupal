@@ -22,3 +22,8 @@ docker build -f="Dockerfile-11-dev" -t test-drupal-11-dev .
 echo ""
 echo "Done with all continuous integration tests, your code should be good to go!!!"
 echo ""
+
+echo ""
+echo "Action done successfully!!!"
+echo ""
+
