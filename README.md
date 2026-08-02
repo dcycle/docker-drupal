@@ -1,4 +1,4 @@
-[![CircleCI](https://circleci.com/gh/dcycle/docker-drupal.svg?style=svg)](https://circleci.com/gh/dcycle/docker-drupal)
+[![GitHub Actions](https://github.com/dcycle/docker-drupal/actions/workflows/config.yml/badge.svg)](https://github.com/dcycle/docker-drupal/actions/workflows/config.yml)
 
 A Drupal+Drush Docker image, updated Wednesdays
 -----

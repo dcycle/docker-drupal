@@ -1,0 +1,103 @@
+name: Run Tests
+
+# Trigger the workflow on every push and pull request.
+on:
+  push:
+    branches:
+      - '**'
+  pull_request:
+
+jobs:
+  # ---------------------------------------------------------------------------
+  # Drupal 10 Build and Test
+  # ---------------------------------------------------------------------------
+  drupal10:
+    name: Drupal 10
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository.
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      # Pull the official Drupal 10 base image.
+      - name: Pull Drupal 10 base image
+        run: |
+          echo "=================================================="
+          echo "Pulling Drupal 10 base image..."
+          echo "=================================================="
+          docker pull drupal:10-php8.1-fpm-alpine
+
+      # Build the production Docker image.
+      - name: Build Drupal 10 image
+        run: |
+          echo "=================================================="
+          echo "Building Dockerfile-10-fpm-alpine..."
+          echo "=================================================="
+          docker build -f Dockerfile-10-fpm-alpine -t test-drupal-10-fpm-alpine .
+
+      # Build the development Docker image.
+      - name: Build Drupal 10 development image
+        run: |
+          echo "=================================================="
+          echo "Building Dockerfile-10-fpm-alpine-dev..."
+          echo "=================================================="
+          docker build -f Dockerfile-10-fpm-alpine-dev -t test-drupal-10-fpm-alpine-dev .
+
+      # Execute the Drupal 10 test suite.
+      - name: Run Drupal 10 tests
+        run: |
+          echo "=================================================="
+          echo "Running Drupal 10 tests..."
+          echo "=================================================="
+          ./scripts/lib/test.sh 10-fpm-alpine
+          echo "=================================================="
+          echo "Drupal 10 tests completed successfully."
+          echo "=================================================="
+
+  # ---------------------------------------------------------------------------
+  # Drupal 11 Build and Test
+  # ---------------------------------------------------------------------------
+  drupal11:
+    name: Drupal 11
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository.
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      # Pull the official Drupal 11 base image.
+      - name: Pull Drupal 11 base image
+        run: |
+          echo "=================================================="
+          echo "Pulling Drupal 11 base image..."
+          echo "=================================================="
+          docker pull drupal:11-fpm-alpine
+
+      # Build the production Docker image.
+      - name: Build Drupal 11 image
+        run: |
+          echo "=================================================="
+          echo "Building Dockerfile-11..."
+          echo "=================================================="
+          docker build -f Dockerfile-11 -t test-drupal-11 .
+
+      # Build the development Docker image.
+      - name: Build Drupal 11 development image
+        run: |
+          echo "=================================================="
+          echo "Building Dockerfile-11-dev..."
+          echo "=================================================="
+          docker build -f Dockerfile-11-dev -t test-drupal-11-dev .
+
+      # Execute the Drupal 11 test suite.
+      - name: Run Drupal 11 tests
+        run: |
+          echo "=================================================="
+          echo "Running Drupal 11 tests..."
+          echo "=================================================="
+          ./scripts/lib/test.sh 11
+          echo "=================================================="
+          echo "Drupal 11 tests completed successfully."
+          echo "=================================================="
