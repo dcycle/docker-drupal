@@ -40,3 +40,5 @@ source ./scripts/lib/rebuild-version-multiarch.sh 10-fpm-alpine 10-php8.1-fpm-al
 source ./scripts/lib/rebuild-version-multiarch.sh 10-fpm-alpine-dev 10-php8.1-fpm-alpine linux/amd64,linux/arm64/v8
 source ./scripts/lib/rebuild-version-multiarch.sh 11 11-php8.3-fpm-alpine3.20 linux/amd64,linux/arm64/v8
 source ./scripts/lib/rebuild-version-multiarch.sh 11-dev 11-php8.3-fpm-alpine3.20 linux/amd64,linux/arm64/v8
+source ./scripts/lib/rebuild-version-multiarch.sh 12-beta2-fpm-alpine 12.0.0-beta2-php8.5-fpm-alpine linux/amd64,linux/arm64/v8
+source ./scripts/lib/rebuild-version-multiarch.sh 12-beta2-fpm-alpine-dev 12.0.0-beta2-php8.5-fpm-alpine linux/amd64,linux/arm64/v8

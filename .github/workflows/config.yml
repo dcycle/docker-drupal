@@ -101,3 +101,50 @@ jobs:
           echo "=================================================="
           echo "Drupal 11 tests completed successfully."
           echo "=================================================="
+
+  # ---------------------------------------------------------------------------
+  # Drupal 12 Build and Test
+  # ---------------------------------------------------------------------------
+  drupal12-beta2:
+    name: Drupal 12-beta2
+    runs-on: ubuntu-latest
+
+    steps:
+      # Check out the repository.
+      - name: Check out repository
+        uses: actions/checkout@v5
+
+      # Pull the official Drupal 12 beta2 base image.
+      - name: Pull Drupal 12 beta2 base image
+        run: |
+          echo "=================================================="
+          echo "Pulling Drupal 12 beta2 base image..."
+          echo "=================================================="
+          docker pull drupal:12.0.0-beta2-php8.5-fpm-alpine
+
+      # Build the production Docker image.
+      - name: Build Drupal 12.0.0-beta2-php8.5-fpm-alpine image
+        run: |
+          echo "=================================================="
+          echo "Building Dockerfile-12.0.0-beta2-php8.5-fpm-alpine..."
+          echo "=================================================="
+          docker build -f drupal-12.0.0-beta2-php8.5-fpm-alpine -t test-drupal-12.0.0-beta2-php8.5-fpm-alpine .
+
+      # Build the development Docker image.
+      - name: Build Drupal 12.0.0-beta2-php8.5-fpm-alpine development image
+        run: |
+          echo "=================================================="
+          echo "Building Dockerfile-12.0.0-beta2-php8.5-fpm-alpine-dev..."
+          echo "=================================================="
+          docker build -f Dockerfile-12.0.0-beta2-php8.5-fpm-alpine-dev -t test-drupal-12.0.0-beta2-php8.5-fpm-alpine-dev .
+
+      # Execute the Drupal 12 test suite.
+      - name: Run Drupal 12 tests
+        run: |
+          echo "=================================================="
+          echo "Running Drupal 12 tests..."
+          echo "=================================================="
+          ./scripts/lib/test.sh 12.0.0-beta2-php8.5-fpm-alpine
+          echo "=================================================="
+          echo "Drupal 12 tests completed successfully."
+          echo "=================================================="
