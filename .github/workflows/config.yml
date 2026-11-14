@@ -128,7 +128,7 @@ jobs:
           echo "=================================================="
           echo "Building Dockerfile-12.0.0-beta2-php8.5-fpm-alpine..."
           echo "=================================================="
-          docker build -f drupal-12.0.0-beta2-php8.5-fpm-alpine -t test-drupal-12.0.0-beta2-php8.5-fpm-alpine .
+          docker build -f Dockerfile-12.0.0-beta2-php8.5-fpm-alpine -t test-drupal-12.0.0-beta2-php8.5-fpm-alpine .
 
       # Build the development Docker image.
       - name: Build Drupal 12.0.0-beta2-php8.5-fpm-alpine development image
