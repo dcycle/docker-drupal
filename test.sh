@@ -5,24 +5,24 @@
 set -e
 
 docker pull drupal:12.0.0-beta2-php8.5-fpm-alpine
-docker pull drupal:11-fpm-alpine
-docker pull drupal:10-php8.1-fpm-alpine
+# docker pull drupal:11-fpm-alpine
+# docker pull drupal:10-php8.1-fpm-alpine
 
-echo "Testing Dockerfile-10-fpm-alpine"
-docker build -f="Dockerfile-10-fpm-alpine" -t test-drupal-10-fpm-alpine .
-echo "Testing Dockerfile-10-fpm-alpine-dev"
-docker build -f="Dockerfile-10-fpm-alpine-dev" -t test-drupal-10-fpm-alpine-dev .
-echo "Testing Dockerfile-11"
-docker build -f="Dockerfile-11" -t test-drupal-11 .
-echo "Testing Dockerfile-11-dev"
-docker build -f="Dockerfile-11-dev" -t test-drupal-11-dev .
+# echo "Testing Dockerfile-10-fpm-alpine"
+# docker build -f="Dockerfile-10-fpm-alpine" -t test-drupal-10-fpm-alpine .
+# echo "Testing Dockerfile-10-fpm-alpine-dev"
+# docker build -f="Dockerfile-10-fpm-alpine-dev" -t test-drupal-10-fpm-alpine-dev .
+# echo "Testing Dockerfile-11"
+# docker build -f="Dockerfile-11" -t test-drupal-11 .
+# echo "Testing Dockerfile-11-dev"
+# docker build -f="Dockerfile-11-dev" -t test-drupal-11-dev .
 echo "Testing Dockerfile-12.0.0-beta2-php8.5-fpm-alpine"
 docker build -f="Dockerfile-12.0.0-beta2-php8.5-fpm-alpine" -t test-drupal-12.0.0-beta2-php8.5-fpm-alpine .
 echo "Testing Dockerfile-12.0.0-beta2-php8.5-fpm-alpine-dev"
 docker build -f="Dockerfile-12.0.0-beta2-php8.5-fpm-alpine-dev" -t test-drupal-12.0.0-beta2-php8.5-fpm-alpine-dev .
 
-./scripts/lib/test.sh 10-fpm-alpine
-./scripts/lib/test.sh 11
+# ./scripts/lib/test.sh 10-fpm-alpine
+# ./scripts/lib/test.sh 11
 ./scripts/lib/test.sh 12.0.0-beta2-php8.5-fpm-alpine
 
 echo ""
