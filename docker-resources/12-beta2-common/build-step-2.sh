@@ -16,11 +16,10 @@ ls -lah /var/www/html
 ls -lah /var/www/html/vendor/bin/drush
 
 cat /var/www/html/core/lib/Drupal.php|grep VERS
-# ln -s /var/www/html/vendor/bin/drush /bin/drush
+ln -s /var/www/html/vendor/bin/drush /bin/drush
 
-composer show drush/drush
-php /var/www/html/vendor/bin/drush --version
-php /var/www/html/vendor/bin/drush status
+drush --version
+drush status
 
 
 /var/www/html/vendor/bin/drush --version

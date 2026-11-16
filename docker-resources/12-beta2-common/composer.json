@@ -16,7 +16,7 @@
         }
     ],
     "require": {
-        "drush/drush": "*",
+        "drush/drush": "^14",
         "composer/installers": "^2.3",
         "drupal/core-composer-scaffold": "^12",
         "drupal/core-recipe-unpack": "^12",
