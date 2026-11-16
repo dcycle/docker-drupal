@@ -12,21 +12,18 @@ cd /var/www/html && \
 rm -Rf vendor/drush
 composer install
 ls -lah /var/www/html
-ls -lah /var/www/html/vendor
-
-ls -lah /var/www/html/vendor/bin
 
 ls -lah /var/www/html/vendor/bin/drush
 
 cat /var/www/html/core/lib/Drupal.php|grep VERS
-ln -s /var/www/html/vendor/bin/drush /bin/drush
+# ln -s /var/www/html/vendor/bin/drush /bin/drush
 
 composer show drush/drush
-php vendor/bin/drush --version
-php vendor/bin/drush status
+php /var/www/html/vendor/bin/drush --version
+php /var/www/html/vendor/bin/drush status
 
 
-drush --version
+/var/www/html/vendor/bin/drush --version
 
 echo "===> (12) All done installing Drupal 12.0.0-beta2"
 /docker-resources/tools/check-integrity.sh "Drupal 12.0.0-beta2"
