@@ -4,7 +4,7 @@
 #
 set -e
 
-/docker-resources/12-beta2-fpm-alpine-dev/build.sh
+/docker-resources/12-beta2-fpm-alpine/build.sh
 
 # Make sure opcache is disabled during development so that our changes
 # to PHP are reflected immediately.
