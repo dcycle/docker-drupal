@@ -21,8 +21,5 @@ ln -s /var/www/html/vendor/bin/drush /bin/drush
 drush --version
 drush status
 
-
-/var/www/html/vendor/bin/drush --version
-
 echo "===> (12) All done installing Drupal 12.0.0-beta2"
 /docker-resources/tools/check-integrity.sh "Drupal 12.0.0-beta2"
