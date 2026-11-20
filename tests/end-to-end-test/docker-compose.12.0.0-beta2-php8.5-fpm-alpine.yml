@@ -1,0 +1,5 @@
+---
+
+services:
+  drupal:
+    image: test-drupal-12.0.0-beta2-php8.5-fpm-alpine
