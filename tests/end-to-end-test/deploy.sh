@@ -5,7 +5,7 @@
 set -e
 
 if [ -z "$1" ]; then
-  >&2 echo "Please provide an argument such as 10 or 11"
+  >&2 echo "Please provide an argument such as 10 or 11 or 12.0.0-beta2-php8.5-fpm-alpine"
   exit 1
 fi
 
