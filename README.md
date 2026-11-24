@@ -1,4 +1,4 @@
-[![GitHub Actions](https://github.com/dcycle/docker-drupal/actions/workflows/config.yml/badge.svg)](https://github.com/dcycle/docker-drupal/actions/workflows/config.yml)
+[![GitHub Actions](https://github.com/dcycle/docker-drupal/actions/workflows/config.yml/badge.svg)](../../actions/workflows/config.yml)
 
 A Drupal+Drush Docker image, updated Wednesdays
 -----
